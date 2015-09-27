@@ -1,5 +1,5 @@
-Friendly mirror of photoblaster
-See what people are creating here!
---> <img href="http://asdf.us/im/gallery" />http://asdf.us/im/gallery</img>
+Friendly mirror of photoblaster </br>
+See what people are creating here! </br>
+&rarr; <img href="http://asdf.us/im/gallery" />http://asdf.us/im/gallery</img>
 
 
