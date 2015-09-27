@@ -1,5 +1,5 @@
 #!/usr/bin/python2
-"""used to run the webserver"""
+"""Use this to run the webserver"""
 import sys
 sys.path.append("./lib")
 from server import Server
