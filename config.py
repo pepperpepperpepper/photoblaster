@@ -9,7 +9,7 @@ GRID = "./bin/grid"
 BEVELBORDER = "./bin/bevelborder"
 
 #common parameters
-DEFAULT_FINALFORMAT = "png";
+DEFAULT_FINALFORMAT = "png"
 DEFAULT_HEIGHT = 400
 DEFAULT_WIDTH = 600
 
