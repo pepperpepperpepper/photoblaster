@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<title>Photoblaster API</title>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/photoblaster-0.1.js"></script>
+<style type="text/css">
+@font-face {
+    font-family: 'PixelComicSans-Regular';
+    src: url('/fonts/pixelcomicsans/PixelComicSans-Regular.eot?#iefix') format('embedded-opentype'), 
+         url('/fonts/pixelcomicsans/PixelComicSans-Regular.woff') format('woff'), 
+         url('/fonts/pixelcomicsans/PixelComicSans-Regular.ttf')  format('truetype'),
+         url('/fonts/pixelcomicsans/PixelComicSans-Regular.svg#svgFontName') format('svg');
+    font-weight: normal;
+    font-style: normal;       
+}
+
+body {
+    font-family: "PixelComicSans-Regular", sans-serif;
+    background: #ddd;
+}
+</style>
+</head>
+<body>
+<p>Push this button to test the API: <button id="test">TEST</button></p>
+<p id="output"></p>
+</body>
+<script type="text/javascript">
+$(function(){
+//  var url = "http://www.maskworld.com/pix/masks/025-party-face-gesicht-fasching-karneval-carnival-halloween-latex-film-movie-larp-theatre-theater-horror-rubber-gummi-mask-masks-maske-masken.jpg";
+  var url = "http://thecoolgadgets.com/wp-content/uploads/2010/03/hamburger_usb_flash_drive.jpg";
+  var name = "test";
+  function success (data) {
+    var s = "";
+    for (i in data) {
+      s += i + ": <b>" + data[i] + "</b><br>";
+    }
+    s += "old: <img src='URL'><br>".replace('URL', url);
+    s += "new: <img src='URL'><br>".replace('URL', data['url']);
+    $("#output").html(s);
+  };
+  function error (e) {
+    $("#output").html("There was an error: <b>" + e + "</b>");
+  };
+  $("#test").click(function() {
+    $.photoblaster(url, name, success, error);
+  });
+});
+</script>
+

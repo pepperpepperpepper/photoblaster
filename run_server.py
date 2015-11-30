@@ -1,10 +1,14 @@
 #!/usr/bin/python2
-"""Use this to run the webserver"""
+"""script used to run the webserver"""
 import sys
-sys.path.append("./lib")
-from server import Server
+from photoblaster.server import Server
+from photoblaster.config import LOCAL
+
+
 server = Server()
 
 if __name__ == "__main__":
-    server.run_wsgi()
-
+    if LOCAL:
+        server.run()
+    else:
+        server.run_wsgi()

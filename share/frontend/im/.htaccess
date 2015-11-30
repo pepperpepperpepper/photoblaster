@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} .*/im/(..)/(.*jpg|.*gif|.*png|.*jpeg)$ [NC]
+RewriteRule ^(.*)$  http://i.asdf.us/im/%1/%2 [R=301,L]
+Header add Access-Control-Allow-Origin "http://atrium.dump.fm"
+Header add Access-Control-Allow-Origin "http://dump.fm"
+Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"

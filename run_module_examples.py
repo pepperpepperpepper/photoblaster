@@ -1,8 +1,6 @@
 #!/usr/bin/python2.7
 """calls the example_run method on all modules"""
-import sys
-sys.path.append('./lib')
-from pb import *
+from photoblaster.modules import Pb
 for cls in Pb.__subclasses__():
     print cls.__name__
     instance = cls.example_run()

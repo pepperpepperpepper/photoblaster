@@ -1,0 +1,430 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html> 
+<head> 
+<title>GREAT GRIDS GALLERY</title> 
+<meta http-equiv="imagetoolbar" content="no"> 
+<meta property="og:image" content="http://asdf.us/imgrid/greatgrids/img/facebookimage.jpg"/>
+ <link rel="shortcut icon" href="http://asdf.us/imgrid/greatgrids/img/favicon.ico">
+
+<link href='http://fonts.googleapis.com/css?family=Tienne:400,700' rel='stylesheet' type='text/css'>
+<style type="text/css"> 
+	html { 
+		overflow: hidden; 
+	} 
+	body { 
+		margin: 0px; 
+		padding: 0px; 
+		background: aqua; 
+		position: absolute; 
+		width: 100%; 
+		height: 100%; 
+	}
+	#curtain{
+		position:fixed;
+		top:0;
+		left:0;
+		height:100%;
+		width:100%;
+		background-color:rgba(255,255,255,0.8);
+		z-index:1500;
+		display:none;
+		overflow:auto;
+		} 
+	#details
+		{
+		position:absolute;
+		width:800px;
+		height:60%;
+		border-style:solid;
+		border-width:1px;
+		background-color:white;
+		margin:0 auto;
+		border-color:black;
+		top:0;
+		left:0;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		-moz-opacity: 1.0;
+		-khtml-opacity: 1.0;
+		opacity:1;
+
+		}
+	#imagedetail
+		{
+		position:absolute;
+		margin:0 auto;
+		border-style:outset;
+		border-color:black;
+		border-width:0px;
+		display:block;
+		opacity:1;
+		}
+	#info
+		{
+		font-size:200%;
+		font-family:helvetica;
+		text-transform:uppercase;
+		display:block;
+		padding:5%;
+		overflow:auto;
+		}
+	#screen { 
+		position:absolute; 
+		left: 00%; 
+		top: 7%; 
+		width: 100%; 
+		height: 100%; 
+		background: aqua; 
+//		overflow: hidden; 
+	} 
+	#screen img { 
+		position: absolute; 
+		cursor: pointer; 
+		left: -4000px; 
+		filter: fliph flipv; 
+		-ms-interpolation-mode:nearest-neighbor; 
+	} 
+	#screen canvas { 
+		position: absolute; 
+		cursor: pointer; 
+		width: 0px; 
+		border-style:outset;
+		border-width:8px;
+		border-color:black;
+		} 
+	#b1
+		{ 
+		position:fixed; 
+		top:0;
+		width:100%; 
+		height:10%;
+		background-color:red;
+		background-image:url(img/tinybackground.gif); 
+		} 
+	#b2
+		{ 
+		position:absolute; 
+		top:100px;
+		width:100%; 
+		font-family: 'Tienne', serif;
+		color:#8B8B7A;
+		text-shadow: 0px -15px 0 bisque;
+		text-shadow: 20px 30px 11px #CDC5BF;
+		font-size:250%;
+		padding-top:20px;
+		padding-bottom:20px;
+		text-align:center;
+		height:100px; 
+		background-color:whitesmoke; 
+		bottom:0px; 
+		} 
+	#b3
+		{
+		position:fixed:
+		top:1000px;
+		height:1000px;
+		width:100%;
+		text-align:center;
+		font-style:georgia;
+		font-size:20px;
+		color:black;
+		text-transform:uppercase;
+		background-color:azure;
+		background-image:url(img/tinybackground2.gif);
+		}
+	a {text-decoration: none;color:#333;} 
+	a:hover	{text-decoration: none;background:#ff8000;color:#fff;} 
+	a:visited {text-decoration: none;color:#333;} 
+	a:visited:hover {text-decoration: none;background:#ff8000;color:#fff;}
+	#error
+		{
+		display:none;
+		} 
+</style> 
+<!--special thanks to Gerard Ferrandez at http://www.dhteumeuleu.com for his image rolodex script--> 
+ 
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script type="text/javascript"> 
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame      || 
+          window.webkitRequestAnimationFrame || 
+          window.mozRequestAnimationFrame    || 
+          window.oRequestAnimationFrame      || 
+          window.msRequestAnimationFrame    || 
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+})();
+var car = { 
+	scr  : 0, 
+	img  : 0, 
+	xm   : 0, 
+	ym   : 0, 
+	xmb  : 0, 
+	ymb  : 0, 
+	drag : false, 
+	cosY : 0, 
+	cosX : 0, 
+	sinY : 0, 
+	sinX : 0, 
+	xd   : 0, 
+	yd   : -10, 
+	ref  : "",
+	run : function () {
+		/* ==== rotation speed ==== */ 
+		var Ay = car.xd / (car.scr.offsetWidth * .2); 
+		var Ax = car.yd / (car.scr.offsetHeight * .2); 
+		/* ==== vertical / horizontal friction ==== */ 
+		if(!car.drag){ 
+			if(Math.abs(car.xd) > Math.abs(car.yd)){ 
+				car.xd *= .99; 
+				car.yd *= .95; 
+			} else { 
+				car.xd *= .95; 
+				car.yd *= .99; 
+			} 
+		} 
+		/* ==== rotation angles ==== */ 
+		car.cosY = Math.cos(Ay); 
+		car.cosX = Math.cos(Ax); 
+		car.sinY = Math.sin(Ay); 
+		car.sinX = Math.sin(Ax); 
+		/* ==== animate images ==== */ 
+		for(var i = 0; i < 8; i++)
+				{ 
+				car.img[i].rotate()
+				}; 
+		/* ==== loop ==== */ 
+		
+		//setTimeout(car.run, 16); 
+	}, 
+ 
+	/* ==== mouse mov ==== */ 
+	mouse : function (e) { 
+		this.xm = e.clientX; 
+		this.ym = -e.clientY; 
+		if(this.drag){ 
+			var homeboy = this.img
+			this.xd = this.xm - this.xmb; 
+			this.yd = this.ym - this.ymb; 
+			} 
+		this.xmb = this.xm; 
+		this.ymb = this.ym; 
+	}, 
+ 
+	/* ==== dim screen ==== */ 
+	resize : function () { 
+		car.nw = car.scr.offsetWidth; 
+		car.nh = car.scr.offsetHeight; 
+	}, 
+ 
+	/* ==== init script ==== */ 
+	init : function () { 
+		/* ==== window mousemove event ==== */ 
+		document.onmousemove = function (e) { 
+			if (window.event) e = window.event; 
+			car.mouse(e);
+		} 
+		/* ==== window onresize event ==== */ 
+		onresize = car.resize; 
+		/* ==== init images ==== */ 
+		this.scr = document.getElementById('screen'); 
+		var img = this.scr.getElementsByClassName('images');
+		this.img = []; 
+		car.resize(); 
+		var k = 0;
+		 
+		for(var xi = -1; xi <= 1; xi+=2) { 
+			for(var yi = -1; yi <= 1; yi+=2) { 
+				for(var zi = -1; zi <= 1; zi+=2) { 
+					var o = img[k++]
+					/* ==== replace images by canvas ==== */ 
+					if (document.createElement("canvas").getContext) { 
+						var src = o;
+						o = document.createElement("canvas");
+						if (k<=8){ 
+						o.id = img[k-1].getAttribute('src')} 
+						o.canvas = true; 
+						/* ==== flip function ==== */ 
+						o.flip = function (fx, fy) { 
+							var context = this.getContext("2d"); 
+							context.translate(fx<0?this.w:0, fy<0?this.h:0); 
+							context.scale(fx, fy); 
+							context.drawImage(this.img, 0, 0, this.w, this.h); 
+						} 
+						o.img = src; 
+						this.scr.appendChild(o); 
+					} 
+					/* ==== HTML Objects ==== */ 
+					this.img.push(o); 
+					o.css = o.style; 
+					o.x3d = xi; 
+					o.y3d = yi; 
+					o.z3d = zi; 
+					o.py  = 0; 
+					o.px  = 0; 
+					o.onselectstart = function () { return false; } 
+					o.ondrag        = function () { return false; } 
+					o.onmousedown   = function () { 
+						car.drag = true; 
+						car.xd = 0; 
+						car.yd = 0; 
+						this.css.cursor = "move";
+						$('canvas').css('border-color','black')
+					//	document.getElementById('error').innerHTML = this.getAttribute('id').toString()
+						car.ref = this.getAttribute('id').toString()
+						$(this).css('border-color','red');
+						$('#error').show("fast"); 
+						return false;
+					 
+					} 
+					o.onmouseout    = function () {car.drag = false; this.css.cursor = "pointer"; return false; } 
+					o.onmouseup     = function () {car.drag = false; this.css.cursor = "pointer"; return false; } 
+					o.rotate        = function () { 
+						/* ==== trigo ==== */ 
+						var tz   = this.z3d * car.cosY - this.x3d * car.sinY; 
+						this.x3d = this.z3d * car.sinY + this.x3d * car.cosY; 
+						this.z3d = this.y3d * car.sinX + tz * car.cosX; 
+						this.y3d = this.y3d * car.cosX - tz * car.sinX; 
+						var zf   = 1 / (this.z3d / 10 + 1); 
+						var x2d  = this.x3d * zf * car.nw * .2; 
+						var y2d  = this.y3d * zf * car.nh * .2; 
+						var w2d  = Math.abs(x2d * 1.6); 
+						var h2d  = Math.abs(y2d * 1.6); 
+						if (this.loaded) { 
+							/* ==== HTML animation ==== */ 
+							this.css.left   = Math.round(car.nw * .5 - x2d - w2d * .5) + 'px'; 
+							this.css.top    = Math.round(car.nh * .5 - y2d - h2d * .5) + 'px'; 
+							this.css.width  = Math.round(w2d) + 'px'; 
+							this.css.height = Math.round(h2d) + 'px'; 
+							this.css.zIndex = Math.round(zf * 100); 
+							/* ==== flipv ==== */ 
+							if ((y2d < 0) != this.py) { 
+								this.py = (y2d < 0); 
+								if (this.canvas) 
+									this.flip(1, -1); 
+								else if (this.filters) 
+									this.filters[1].enabled = (y2d < 0) ? "true" : "false"; 
+							} 
+							/* ==== fliph ==== */ 
+							if ((x2d < 0) != this.px) { 
+								this.px = (x2d < 0); 
+								if (this.canvas) 
+									this.flip(-1, 1); 
+								else if (this.filters) 
+									this.filters[0].enabled = (x2d < 0) ? "true" : "false"; 
+							} 
+						} else { 
+							/* ==== load image ==== */ 
+							if ((this.canvas && this.img.complete) || this.complete) { 
+								this.loaded = true; 
+								if (this.canvas) { 
+									this.w = this.img.width; 
+									this.h = this.img.height; 
+									this.width = this.w; 
+									this.height = this.h; 
+									var context = this.getContext("2d"); 
+									context.drawImage(this.img, 0, 0, this.w, this.h); 
+								} 
+							} 
+						} 
+					} 
+				} 
+			} 
+		} 
+		(function animloop(){
+  requestAnimFrame(animloop);
+  car.run();
+})();
+		//this.run(); 
+	} 
+} 
+</script> 
+</head> 
+ 
+<body> 
+ 
+	<div id='curtain'>
+		<div id='details'>
+<span id="info"></span>
+<a href='http://asdf.us/imgrid/index.html'><img src='img/blackplant.png' style='position:fixed; z-index:2000; top:300px; left:50px; height:25%;'></img></a>
+<div id="detailwrapper"><img id='imagedetail'></img></div>
+		</div>
+</div>
+<div id="screen"> 
+	<div id="b1"></div> 
+	<div id="b2">WELCOME TO THE PHOTOBLASTER GREAT GRIDS GALLERY...THESE ARE RECENT GRIDS CREATED USING <a href='http://asdf.us/imgrid'>HTTP://ASDF.US/IMGRID</a></div>
+	<div id="b3">	
+	<br>
+	</div> 
+	<img class='images' alt="by Jeremy Matthew Daly" src="images/gg1.png"/> 
+	<img class='images' alt="by Jeremy Matthew Daly" src="images/gg2.png"/> 
+	<img class='images' alt="by Jeremy Matthew Daly" src="images/gg3.png"/> 
+	<img class='images' alt="by Jeremy Matthew Daly" src="images/gg4.png"/> 
+	<img class='images' alt="by Jeremy Matthew Daly" src="images/gg5.png"/> 
+	<img class='images' alt="by Jeremy Matthew Daly" src="images/gg6.png"/> 
+	<img class='images' alt="by Pepper" src="images/gg7.png"/> 	
+	<img class='images' alt="by Calla Donofrio" src="images/gg8.png"/> 
+</div> 
+<div id='error' style= 'height:6%;position:fixed;left:50px; top:20px;cursor:pointer;opacity:0.8'><img src="http://asdf.us/im/e2/blackkplant_1324724811_pepper_1324724920_pepper.gif" style='height:300%; z-index:100;position:absolute;left:-40px;top:-20px;'></img><img src="http://i.imgur.com/xVHpN.gif" style='height:90%;z-index:104;position:absolute;'></img></div> 
+<script type="text/javascript"> 
+	/* ==== start ==== */ 
+	setTimeout(function() { 
+		car.init(); 
+	}, 1000); 
+</script> 
+
+<script type='text/javascript'>
+var imagedict = {
+				"images/gg1.png":"By Jeremy<br>Matthew<br>Daly",
+				"images/gg2.png":"By Jeremy<br>Matthew<br>Daly",
+				"images/gg3.png":"By Jeremy<br>Matthew<br>Daly",
+				"images/gg4.png":"By Jeremy<br>Matthew<br>Daly",
+				"images/gg5.png":"By Jeremy<br>Matthew<br>Daly",
+				"images/gg6.png":"By Jeremy<br>Matthew<br>Daly",
+				"images/gg7.png":"By Pepper",
+				"images/gg8.png":"By <a href='http://www.facebook.com/CallaDonofrio'>Calla<br>Donofrio</a><br><br><span style='font-size:50%'><a href='http://calladonofrio.tumblr.com'>more by her...</a>"}
+function centerimage()
+	{
+	$('#imagedetail').load(function()
+		{
+		detailwidth = $('#imagedetail').width()
+		detailheight = $('#imagedetail').height()
+		theborder = 2	
+		centerpointone = parseFloat(detailwidth)/2
+		centerpointtwo = parseFloat(detailheight)/2
+		leftpos = window.innerWidth/2-centerpointone-theborder
+		toppos = window.innerHeight/2-centerpointtwo-theborder
+		wrapperposT = (toppos-20).toString()+'px'
+		wrapperposL = (leftpos-20).toString()+'px'
+		wrapperheight = detailheight+40
+		wrapperwidth = detailwidth+40
+		$('#imagedetail').css({top:20,left:20})
+		$('#detailwrapper').css({'position':'absolute','z-index':'1499','width':wrapperwidth,'height':wrapperheight,'top':wrapperposT,'left':wrapperposL,'background-color':'white','border-style':'solid','border-color':'black','border-width':'1px'});
+		refpoint = $('#imagedetail').attr('src')
+		newrefpoint = imagedict[refpoint]
+		$('#info').html(newrefpoint)
+		
+		thefont = (leftpos-20)/9
+		if (thefont > 38) {thefont = 38}
+		$('#info').css('font-size',thefont.toString()+'px')
+		
+		
+		})
+	}
+function curtainfunction()
+	{
+		centerimage()
+		$('#curtain').toggle();
+		$('#imagedetail').attr('src',car.ref);													
+	}
+$('#curtain').click(function(){$('#curtain').toggle("slow")})
+
+$('#error').click(function()
+		{
+		curtainfunction()
+		})
+$('canvas').dblclick(function(){curtainfunction()})
+</script> 
+</body> 
+</html> 
+

@@ -1,0 +1,156 @@
+*
+	{
+	padding: 0;
+	margin: 0;
+	font-family: times;
+	}
+body
+	{
+	background-color: #e6e0e0;
+	color: #696969;
+	overflow-x:hidden;
+	}
+h1
+	{
+	font-size: 40px;
+	}
+#brightness-slider,#hue-slider,#saturation-slider,#blur-slider
+	{
+	margin-top:10px;
+	margin-bottom:10px;
+	background-color:#B3B3B3;
+	}
+#stripenumber,#stripeintensity,#percentbeveled
+	{
+	height:10px;
+	width :25px;
+	font-size:9;
+	}
+#controls,#result
+	{
+	padding: 10px;
+	width: 460px;
+	}
+#controls
+	{
+  display:block;
+	font-size: 14px;
+	top: 10px; left: 10px;
+	z-index: 5;
+	background-color: #fff;
+	-moz-box-shadow: 0px 0px 9px 3px mediumseagreen;
+	-webkit-box-shadow: 0px 0px 9px 3px mediumseagreen;
+	box-shadow: 0px 0px 9px 3px mediumseagreen;
+	border: 60px outset #777;
+	}
+#result
+	{
+	background-color: #d6d0d0;
+	top: 10px; left: 580px;
+	z-index: 5;
+	display: none;
+	position: fixed;
+	}
+#instructions
+	{
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	line-height: 18px;
+	z-index: 1;
+	}
+p
+	{
+	background-color: #fff;
+	padding: 10px;
+	font-size: 14px;
+	width: 430px;
+	display: block;
+	}
+#gallery-link
+	{
+	background-color: #fff;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 10px;
+	z-index: 10;
+	}
+.error
+	{
+	color: red;
+	font-size: 20px;
+	}
+a
+	{
+	color: #b4d;
+	font-weight: bold;
+	}
+label
+
+	{
+	display: inline-block;
+	width: 300px;
+	padding-right: 10px;
+	text-align: center;
+	}
+input[type=text]
+	{
+	width: 50px;
+	}
+#img-url,#output-url,#img-background
+	{
+	width: 200px;
+	}
+#img-width,#img-height,#img-brightness,#img-saturation,#img-contrast,#img-hue,#img-rotate,#img-blur,#img-tilt
+	{
+	width: 50px;
+	text-align: right;
+	}
+button
+	{
+	padding: 2px 5px;
+	font-size: 16px;
+	width:200px;
+	float:right;
+	font-weight:bold;
+	color:#222222;
+	}
+#result img
+	{
+	max-width: 400px;
+	max-height: 400px;
+	}
+#output-cmd
+	{
+	font-size: 12px;
+	white-space: pre;
+	}
+.shim
+	{
+	height: 10px;
+	clear: both;
+	display: block;
+	}
+#output-url
+	{
+	width: 320px;
+	}
+#likebutton
+	{
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	width: 350px;
+	background-color: #fff;
+	padding: 10px;
+	color: #ddd;
+	font-family: times;
+	text-transform: uppercase;
+	}
+.arrow
+	{
+	float:right;
+  white-space:inherit;
+  display:inline;
+	}

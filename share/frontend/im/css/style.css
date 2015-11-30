@@ -1,0 +1,170 @@
+*
+	{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+	}
+body
+	{
+	background-color: #efedee;
+	// background-color: #838388;
+	color: #555;
+	}
+#down_for_maintenance{
+  position: absolute;
+  background: url("http://asdf.us/impattern/patterns/38.png");
+  z-index:2000;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left:0;
+  display: none;
+}
+#down_for_maintenance > span{
+  background: white;
+}
+#controls,#result
+	{
+	display: inline-block;
+	margin: 10px;
+	width: 430px;
+	float: left;
+	}
+#controls
+	{
+	font-size: 14px;
+	top: 0; left: 0;
+	z-index: 5;
+	}
+#result
+	{
+	background-color: #d6d0d0;
+//	background-color: #131412;
+	margin-left: 20px;
+	padding: 10px;
+	display: none;
+	z-index: 5;
+	}
+#sendtoinput
+	{
+	font-size: 10px; 
+	}
+#instructions
+	{
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	line-height: 18px;
+	z-index: 1;
+	}
+p,form
+	{
+//	background-color: #010101;
+	background-color: #fff;
+	background-position: center center;
+	padding: 10px;
+	font-size: 14px;
+	width: 430px;
+	display: block;
+	}
+#gallery-link
+	{
+	background-color: #fff;
+//	background-image: url(imcupbg.jpg);
+	background-position: center center;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 10px;
+	z-index: 10;
+	}
+.error
+	{
+	color: red;
+	font-size: 20px;
+	}
+a
+	{
+//	color: #b4d;
+	color: #a39;
+	font-weight: bold;
+	}
+label
+	{
+	display: inline-block;
+	width: 190px;
+	padding-right: 10px;
+	text-align: right;
+	}
+small
+	{
+	color: #777;
+	}
+input[type=text]
+	{
+	width: 100px;
+	}
+#img-url,#output-url,#img-background
+	{
+	width: 200px;
+	}
+#bgswitcheroo, #colorswitcheroo
+  {
+  width: 19px;
+  height:38px;
+  display: inline-block;
+  position: absolute;
+  background-image: url(http://i.asdf.us/im/7e/user_convo_1353562627_1355449919.png);
+  //background-image: url( http://i.asdf.us/im/7b/user_convo_1353562627.png); 
+  background-repeat:no-repeat;
+  background-position: 3px 10px;
+  cursor: pointer;
+  }
+#img-fuzz,#img-width,#img-height,#img-brightness,#img-saturation,#img-contrast,#img-hue,#img-rotate
+	{
+	width: 50px;
+	text-align: right;
+	}
+button
+	{
+	padding: 2px 5px;
+	font-size: 16px;
+	}
+#result img
+	{
+	max-width: 400px;
+	max-height: 400px;
+	}
+#output-cmd
+	{
+	font-size: 12px;
+	white-space: pre;
+	}
+.shim
+	{
+	height: 10px;
+	clear: both;
+	display: block;
+	}
+#output-url
+	{
+	width: 320px;
+	}
+#likebutton
+	{
+  display: none;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	width: 350px;
+	background-color: #fff;
+//	background-image: url(imcupbg.jpg);
+	padding: 10px;
+	color: #ddd;
+	font-family: trebuchet ms, sans-serif;
+	}
+div#controls, span#userlink {
+  display: none;
+} span#userlink a {
+  text-transform: capitalize;
+}

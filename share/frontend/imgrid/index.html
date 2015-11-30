@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">  
+<html>
+<!--
+        *                       pepper                          *
+       ***                          and                        ***
+       ****                        JMD                        ****
+       *   ******      internet CHAMPIONS               ******   *
+       *         ***************************************         *
+        **            *       ______*______       *            **
+          *****      *        ______*______        *      *****
+               *******        ______*______        *******
+            ***       ****          *         ****        ***
+                ****** *oo*******  ***  *******oo* ******
+                     *   *o********* *********o*   *
+                      *   *                   *   *
+                       *   *   _         _   *   *
+                        *   *  -_       _-  *   *
+                         *  *   -_     _-   *  *
+                          * *     -___-     * *
+                           *                 *
+                          *********************
+                          *      **   **      *
+                            *    **   **    *
+                              *  _-----_  *
+                                *********
+
+-->         
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />  
+    <meta name="description" content="IMGRID - stretch images from the web in 3 dimensions, draw lines and make drop shadows" >
+    <meta name="keywords" content="photoblaster, 3D" >
+    <meta name=Author content="Pepper - 2011 www.facebook.com/AAAFFF">
+	  <link rel="shortcut icon" href="http://asdf.us/imgrid/img/favicon.ico">
+    <link rel="image_src" href="http://asdf.us/imgrid/greatgrids/images/gg7.png" > 
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+    <meta property="og:title" content="imgrid" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="IMGRID - stretch images from the web in 3 dimensions, draw lines and make drop shadows" />
+		<meta property="og:image" content="http://asdf.us/imgrid/img/facebookimage.png"/>
+    <meta property="fb:admins" content="100001923956223,1709246"/>
+		<title>IMGRID - stretch images from the web in 3 dimensions, draw lines and make drop shadows</title>
+		
+		<link rel="stylesheet" href="css/general.css" type="text/css" media="screen" />  
+		<link href='css/jquery-ui-1.8.16.custom.css' rel='stylesheet' type='text/css' />
+		<link href='css/cssreset.css' rel='stylesheet' type='text/css'/>
+		<link href='css/style.css' rel='stylesheet' type='text/css'/>
+	  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<!--		<link href='css/jeremy.css' rel='stylesheet' type='text/css' />-->
+</head>
+<body>
+			<div id='intro'>
+        <div id='intro-inner'>
+					<img src="img/athena.gif" />
+			  </div>
+      </div>
+
+<img src='http://asdf.us/im/8d/imgrid_1324285217_imgrid_1324210455_imgrid_1324210353_gradient_darkseagreencyan_1317343959___.png' style='position:fixed; top:-200px; z-index:-100;'></img>
+<div class="j-blurb" >IMGRID</div>
+<div class="j-blurb-lower">3D-GRID-PLANE GENERATOR</div>
+
+<div id='genbutton-wrapper'><button id='generate'>GENERATE</button></div>
+</div>
+
+<form id='theform'>
+	<div id="flatcontrols">
+<table>
+  <tr>
+    <td class='dimensionsmore'>PERSPECTIVE OPTIONS</td>
+	
+		<td>	<div id='dimensionsplug' class='dimensionsmore'>+</div></td></tr>
+		</table>
+			<div id='thedimensions'>
+<table  class="dimensions">
+			<tr><td>SWING&nbsp<input id='swing' type='text' value='0'></input></td></tr>
+				<tr id="swingslider" class="slider"></tr>
+			<tr><td>TILT&nbsp<input id='tilt' type='text' value='0'></input></td></tr>
+				<tr id="tiltslider" class="slider"></tr>
+			<tr><td>ROLL&nbsp<input id='roll' type='text' value='0'></input></td></tr>
+				<tr id="rollslider" class="slider"></tr>
+			<tr><td>ZOOM&nbsp (in/out) &nbsp<input id='zoom' type='text' value='0'></input></td></tr>
+				<tr id="zoomslider" class="slider" value='0'></tr>
+
+			<tr class="buffer">
+        <td>&nbsp</tr>
+      <td>
+</table>
+			</div>
+<table>
+<tr><td class='gridmore'>GRID OPTIONS</td>
+	
+		<td>	<div id='gridplug' class='gridmore'>+</div></td></tr>
+		</table>
+
+		<div id='thegrid'>
+	<table class='gridadj'>
+			<tr><td>GRID THICKNESS:</td>
+			<td>
+        <input id='line-thickness' type='text' value='1'></input>
+      </td>
+      <td>PX
+      </td>
+			<td class="slider"  id="line-thickness-slider">
+      </td>
+					</tr>
+			
+					<tr class='gridadj'><td>GRID COLOR:</td>
+					<td><input id='line-color' type='text' class="color_input line-color" value='MISTYROSE4'></input></td>
+					<td><a href="http://asdf.us/im/colors" class="color_input line-color" target="_blank">COLOR LIST</a></td>
+					</tr>
+
+					</table>
+					<table>
+						<tr class='gridadj'>
+							<td>GRID OPACITY: </td>
+						<td><input id='line-opacity' type='text' value='1'></input></td>
+						<td  class="slider" id="opacity-slider"></td>
+						</tr>
+
+						<tr class='gridadj'>
+									<td>GRID SPACING: </td>
+						<td><input id='line-spacing' type='text' value='0'></input></td>
+						<td class="slider" id="spacing-slider"></td></tr>
+								
+						<tr class='gridadj'><td>USE ONLY VERTICAL LINES</td><td><input type="checkbox" id="v-lines" value="false"></input></td></tr>
+									
+									<tr class='gridadj'><td>USE ONLY HORIZONTAL LINES</td><td><input type="checkbox" id="h-lines" value="false" ></input></td></tr>
+							</table>
+<table class='gridadj'><td>GRID BACKGROUND COLOR <input type="text" class="color_input bg-color" id="bg-color" value="transparent"></td>
+  <td><a href="http://asdf.us/im/colors" class="color_input bg-color" target="_blank">COLOR LIST</a></input></td>
+			
+			</table>
+									<table class='gridadj'>
+			<tr><td>OR GRID BACKGROUND IMAGE</td>
+			<td><input class="urlinput" type="text" id="bg-image" value="">IMG URL eg:http://ww...</input></td></tr>
+		</table>
+
+<table class='gridadj'>
+			<tr><td>GRID-TRANSITION</td>
+		<td><select id="transition">
+			<option selected="selected" value='background'>none</option>
+			<option value="dither">dithered</option>
+			<option value="random">noise</option>
+			<option value="tile">infinite</option>
+			<option value="edge">extended-edge</option>
+		</select></td></tr>
+			
+</table>
+</div>
+
+
+		<table id="bg-table" >
+				<tr><td class="backgroundmore">IMAGE OPTIONS</td>
+					<td><div id="backgroundplug" class="backgroundmore">+</div></td>
+					</tr>
+			</table>
+<div id='thebackground'>
+			<table class='background'>
+					<tr><td>HEIGHT</td>
+					<td>	<input id='img-height' type='text' value='500'><span class="big">PX</span></input></td></td>
+
+					<tr><td>WIDTH</td>
+					<td>
+            <input id='img-width' type='text' value='700'>
+              <span class="big">PX</span>
+            </input>
+          </td>
+<!--          </td>-->
+			</table>
+  <table class='background'>
+        <tr><td>USE IMAGE INSTEAD OF GRID</td>
+        <td><input type="text" class="urlinput" type="text" id="imageinstead" value="">IMG URL eg:http://ww...</input></td>
+        </tr></table>
+			<table class='background'><td>BACKGROUND COLOR</td><td><input type="text" value="transparent" class="color_input planebgcolor" id="planebgcolor"></input></td>
+			<td><a href="http://asdf.us/im/colors" class="color_input planebgcolor" target="_blank">COLOR LIST</a></td>			</table>
+			<table class="background">
+
+			<tr><td>OR BACKGROUND IMAGE</td><td><input class='urlinput' type="text" value="" id="planebgimage">IMG URL eg:http://ww...</input></td></tr>
+		</table>
+
+			<table class='background'>
+			<tr><td>DROP SHADOW</td><td><input type='checkbox' id='shadow' value='false'</input></td></tr>
+</table>
+			<table class='background'><tr><td>SKYCOLOR</td><td><input type="text" class="color_input skycolor" value="none" id="skycolor">for the area above the horizon-line</input></td>
+			<td><a href="http://asdf.us/im/colors" class="color_input skycolor" target="_blank">COLOR LIST</a></td>
+			</tr>
+        <table class='background'>			
+				<tr><td>CROP WHITESPACE</td><td><input type="checkbox" id="trim" value="false"></input></td></tr>
+				</table>
+    <table class='background'>
+          <tr><td>IMAGE FORMAT</td><td>
+        <select id='format'>
+          <option selected='selected' value=''></option>
+          <option value='png'>PNG</option>
+          <option value='gif'>GIF</option>
+          <option value='jpg'>JPG</option>
+        </select></td></tr></table>
+    </table>
+
+</div>
+<table>
+	<tr><td>&nbsp</td></tr>
+	<tr><td>USERNAME</td><td><input type=text value="" id='username'></input></td><td><div class='linksmore' id='linksplug'>+</div></td>
+<td>	<div id='links' class='links'>
+	<a class='links' href="http://asdf.us/im/gallery">PHOTOBLASTER GALLERY</a><br>
+	<a class='links' href="http://asdf.us/imgrid/greatgrids/">THE GREAT GRIDS GALLERY</a><br>
+	<a class='links' href="http://asdf.us/im">MAIN PHOTOBLASTER EDITOR</a></br>
+<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=236917449658413&amp;xfbml=1"></script><fb:like href="http://asdf.us/im/" send="false" width="347" show_faces="false" colorscheme="light" font="" style="background-color: transparent;"></fb:like>
+	
+	</div>
+
+</td></tr></table>
+
+<br>
+
+
+</div>
+
+</div>
+
+</form>
+<div id='result'>
+	<span id="output-cmd" class='results'>
+</span>
+	<span id="output-img" class='results'></span>
+	<input id="output-url" class='results'></input>
+	<div id="output-info" class='results'></div>
+</div>
+<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="/im/colors/js/jquery.remember-state.js"></script>
+<script type="text/javascript" src="/im/colors/js/jquery.fancybox.js?v=2.1.5"></script>
+<link rel="stylesheet" type="text/css" href="/im/colors/css/jquery.fancybox.css?v=2.1.5" media="screen" />
+<script type="text/javascript" src="js/colors_iframe.js"></script>
+<script type='text/javascript' src="js/intro.js"></script>
+<script type="text/javascript" src="js/sliders.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type='text/javascript'>
+		linksclicked = 'false';
+		$('#linksplug').click(function(){
+			$('.links').toggle('300')
+			
+			if(linksclicked === 'false'){
+					$('#linksplug').html('-')
+					$('.links').css({'min-width':'275px','word-space':'nowrap','min-height':'100px'})
+					linksclicked = 'true'
+					}
+			else{
+					$('#linksplug').html('+')
+					$('#links').css('padding','0px');
+					linksclicked = 'false'
+					}	
+			$('.copyright').hide()
+				$("body,html").scrollTop(5000);					
+												})
+
+		gridmoreclicked = 'false';
+		$('.gridmore').click(function(){
+			$('.gridadj').toggle('300')
+
+			if(gridmoreclicked === 'false'){
+					$('#gridplug').html('-')
+					$('#thegrid').css('padding','5px');
+					gridmoreclicked = 'true'
+					$("html,body").scrollTop(1000);					
+					}
+			else{
+					$('#gridplug').html('+')
+					$('#thegrid').css('padding','0px');
+					gridmoreclicked = 'false'
+					}	
+			$('.copyright').hide()
+												})
+
+
+
+	backgroundmoreclicked = 'false';
+	$('#backgroundplug').html('+');
+	$('.backgroundmore').click(function(){
+			$('.background').toggle('300')
+			if(backgroundmoreclicked === 'false'){
+					$('#thebackground').css('padding','5px');
+					$('#backgroundplug').html('-')
+					$("html,body").scrollTop(1000);					
+					backgroundmoreclicked = 'true'
+					}
+			else{
+					$('#backgroundplug').html('+')
+					$('#thebackground').css('padding','0px');
+					backgroundmoreclicked = 'false'
+					}	
+			$('.copyright').hide()
+			});
+
+
+	dimensionsmoreclicked = 'false';
+	$('#dimensionsplug').html('+');
+	$('.dimensionsmore').click(function(){
+			$('.dimensions').toggle('300')
+			if(dimensionsmoreclicked === 'false'){
+					$('#dimensionsplug').html('-')
+					$('#thedimensions').css('padding','5px');
+					$("html,body").scrollTop(1000);					
+					dimensionsmoreclicked = 'true'
+					}
+			else{
+					$('#dimensionsplug').html('+')
+					$('#thedimensions').css('padding','0px');
+					dimensionsmoreclicked = 'false'
+					}	
+			$('.copyright').hide()
+			});
+
+
+	$('#bg-color').click(function(){
+					nonecheck = $('#bg-color').val()
+					if(nonecheck === 'none')
+							{
+							$('#bg-color').val('')
+							}
+		});
+	function clearbg()
+		{
+		$('#planebgcolor').val("");
+		}
+	$('#planebgimage, #planebgcolor').click(function(){clearbg()});
+	$('#planebgcolor').click(function(){clearbg});
+$('#line-color, #bg-color, #skycolor').click(function(){
+	$(this).val("");
+})
+</script>
+<script type="text/javascript" src="http://asdf.us/js/pbembed.js"></script>
+</body>
+</html>

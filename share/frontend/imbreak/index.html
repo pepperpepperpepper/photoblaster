@@ -1,0 +1,274 @@
+<html>
+<!--
+        *                                                       *
+       ***                                                     ***
+       ****                                                   ****
+       *   ******                                       ******   *
+       *         ***************************************         *
+        **            *       ______*______       *            **
+          *****      *        ______*______        *      *****
+               *******        ______*______        *******
+            ***       ****          *         ****        ***
+                ****** *oo*******  ***  *******oo* ******
+                     *   *o********* *********o*   *
+                      *   *                   *   *
+                       *   *   _         _   *   *
+                        *   *  -_       _-  *   *
+                         *  *   -_     _-   *  *
+                          * *     -___-     * *
+                           *                 *
+                          *********************
+                          *      **   **      *
+                            *    **   **    *
+                              *  _-----_  *
+                                *********
+by pepper
+-->  
+<head>
+		<link href='jquery-ui-1.8.16.custom.css' rel='stylesheet' type='text/css' />
+		<link href='cssreset.css' rel='stylesheet' type='text/css'/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta property="og:title" content="FOTO FUCKER"/> 
+<link rel="shortcut icon" href="imbreakfavico.ico">
+<meta property="og:type" content="website"/> 
+<meta name=Author content="Pepper"/>
+<meta property="og:url" content="http://asdf.us/imbreak/"/> 
+<meta property="og:image" content="http://asdf.us/imbreak/og.jpg" />
+<meta property="og:site_name" content="asdf.us"/> 
+<meta property="og:description" content="now it's time to get back at those photos and fuck them up"/> 
+<meta property="fb:admins" content="100001923956223,1709246"/>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<style type='text/css'>
+body
+	{
+	font-size:11px;
+	background-image:url(_broken_by_janie_30e_semitrans1.png);
+	overflow:hidden;
+	}
+#header
+	{
+	-moz-border-radius:14px;
+	-webkit-border-radius:14px;
+	border-radius:14px 14px 14px 14px;
+	padding:10px;
+	width: 100%;
+	background-image:url(columns.jpg);
+	background-color:white;
+	}
+#controls
+	{
+	width:47%;
+	padding:24px;
+	background-color:rgba(240, 240, 240,0.9);
+	-moz-box-shadow: 0px 0px 9px 1px whitesmoke;
+	-webkit-box-shadow: 0px 0px 9px 1px whitesmoke;
+	box-shadow: 0px 0px 9px 1px whitesmoke;
+	position:fixed;
+	z-index:100;
+	top:48%;
+	}
+#breakmode
+	{
+	background-color:#FAFAFA;
+	}
+#copyright
+	{
+	position:absolute;
+	bottom:10px;
+	left:720px;
+	color:red;
+	}
+#likebutton
+	{
+	background-color:#F7f7f7;
+	right:20px;
+	position:absolute;
+	bottom:10px;
+	}
+#links
+	{
+	background-color:#FFFFFF;
+	}
+#url
+	{
+	width:70%;
+	font-size:11;
+	}
+#result
+	{
+	display:none;
+	position:fixed;
+	top:20px;
+	right:10px;	
+	background-color:rgba(250, 250, 250,0.8);
+	width:50%;
+	 -moz-box-shadow: 0px 0px 9px 1px whitesmoke;
+  -webkit-box-shadow: 0px 0px 9px 1px whitesmoke;
+  box-shadow: 0px 0px 9px 1px whitesmoke;
+	}
+.results
+	{
+	display:none;
+	z-index:100;
+	}
+#output-url
+	{
+	width:500px;
+	padding:0;
+	margin:5%;	
+	}
+#output-image
+	{
+	max-height:500px;
+	max-width:500px;
+	padding-top:40px;
+	padding-left:40px;
+	}
+#output-info
+	{
+	margin-left:5%
+	}
+#therest
+	{
+	padding:20px;
+	}
+#links
+	{
+	padding:5px;
+	}
+.ui-slider-horizontal
+	{
+	background-color:whitesmoke;
+	}
+#breakangle
+	{
+	width:40px;
+	}
+#firstlogo, #secondlogo, #mainlogo, #header
+	{
+	display:inline-block;
+	pointer-events: none;
+	cursor: default;
+	-webkit-user-select: none;
+	-moz-user-select: none; 
+	-ms-user-select: none; 
+	-o-user-select: none;
+	user-select: none;
+	}
+#ivy
+	{
+	height:500px;
+	}
+#ivy img
+	{
+	height:60%;
+	}
+</style>
+</head>
+<body>
+<div id='copyright'>SITE BY PEPPER - COPYRIGHT 2011</div>
+<div id="header">
+	<br>
+	<span style="background-color:rgba(245,245,245,0.7)">An image breaking utility from PHOTOBLASTER, this program breaks images
+	<br>and then restores them to an unbroken state so that they can be used for further editing.<br></span>
+<p>
+	<li id="ivy" style="background-image:url(img/ivy.gif);">
+	<img id="firstlogo" src="img/logo.gif"></img>
+	<img id="mainlogo" src="img/main.gif"></img>
+	<img id="secondlogo" src="img/logo-variant.gif"></img>
+</li>
+<li style="display:inline; background-image:url(http://i.asdf.us/im/63/imgrid_1328137237_ivy_pepper.gif)"></li>
+</p>
+<p style="background-image:url(http://asdf.us/im/54/ALPHA20IVY20201_1323328300.gif)">
+	
+</p>
+</div>
+<br>
+<div id="controls">
+		WHY NOT PASTE A URL HERE? (an image or gif animation)!!
+		<input id='url' placeholder="http://..." type="text">
+		</input>
+		<br>
+		<span id='example'>e.g. http://imageman.com/coolguy.jpg... or hotimagedudes/cooltimes.gif</span>
+		<button id='breakbutton'>BREAK IT!</button>&larr;&larr;CLICK HERE!!  KEEP CLICKING TO KEEP FUCKING IT UP!!!
+		<br>
+
+BREAK TYPE:&nbsp;<select id="breaktype">
+	<option selected="selected" value='CLASSIC'>CLASSIC</option>
+	<option value="REDUX">REDUX</option>
+	<option value="BLURRY_BREAK">BLURRY BREAK</option>
+	<option value="BLURRY_BREAK_2">MIAMY</option>
+	<option value="SWIPE">SWIPE</option>
+	<option value="RGB_WASH">RGB WASH</option>
+	<option value="RGB_WASH_2">CHOP AND BLUR</option>
+	<option value="NOISY_BREAK">NOISY BREAK</option>
+	<option value="BROKEN_VIGNETTE">BROKEN VIGNETTE</option>
+	<option value="FAX_MACHINE">FAX MACHINE</option>
+	<option value="STRIPES">STRIPES</option>
+	
+	<option value="PHOTOCOPY">PHOTOCOPY</option>
+</select>
+
+
+<br>
+	<div id='breakmode'>BREAK MODES:
+		<input type='radio' name='modeswitch' id='subtle' value='subtle' checked='checked'></input>subtle
+		<input type='radio' name='modeswitch' id='gradual' value='gradual' ></input>gradual
+		<input type='radio' name='modeswitch' id='extreme' value='extreme'></input>extreme
+	</div>
+		<br>
+BREAK ANGLE:&nbsp;<input id='breakangle' type='text' value='0'></input>
+<div id="breakangleslider" style="display:inline-block; width: 70%; height:10px;" class="slider"></div><br>
+<div id="expanded_check"></div><!--add click event in javascript-->
+</div>
+<div id='therest'>
+
+	<div id='links'>
+		<span id='imagegallery'><a href='http://asdf.us/im/gallery'>PHOTOBLASTER IMAGE GALLERY</a></span>
+<span style="margin-left:120px; background-color:rgba(240, 240, 240,0.8)">enter your username: <input type='text' id='username'></input></span>
+		<br>
+		<span id='backtotheeditor'><a href="http://asdf.us/im">&larr;BACK TO THE EDITOR</a></span>
+	</div>
+
+	<div id="likebutton"> 
+	<div id="fb-root" style="background-color: transparent;"></div><script src="http://connect.facebook.net/en_US/all.js#appId=236917449658413&amp;xfbml=1"></script><fb:like href="http://asdf.us/im/" send="false" width="347" show_faces="true" colorscheme="light" font="" style="background-color: transparent;"></fb:like> 
+	</div> 
+</div>
+</div>
+<div id='result'>
+	<span id="output-cmd" class='results'>
+</span>
+	<span id="output-img" class='results'></span>
+	<input id="output-url" class='results'></input>
+	<div id="output-info" class='results'></div>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+function clearcopyright(){
+$('#copyright').html("");
+}
+$("div").bind("click",clearcopyright)
+
+
+$(function(){
+$( "#breakangleslider" ).slider({
+      value:0,
+      min: -180,
+      max: 180,
+      step: 1,
+      slide: function( event, ui ) {
+        $( "#breakangle" ).val(ui.value);
+          }
+        });
+    $( "#breakangle" ).val($( "#breakangleslider" ).slider( "value" ) );
+});
+</script>
+<script type="text/javascript" src="main.js"></script>
+
+<script type="text/javascript" src="http://asdf.us/js/pbembed.js"></script>
+</body>
+
+
+
+</html>

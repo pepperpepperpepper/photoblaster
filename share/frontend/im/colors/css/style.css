@@ -1,0 +1,264 @@
+body {
+	margin:0;
+}
+.hide{
+	display:none;
+}
+#colorpicker
+{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height:100%;
+	width:100%;
+  overflow-y: scroll;
+	font-family:helvetica; 
+	font-size:10px; 
+	background-color: gray;	
+	background-color: black;
+	background-image: url("../images/bg.dither.gif");
+}
+#infoswitch, #hexswitch, #backgroundswitch
+{
+	background-image:url("../images/gradient.jpg");
+	cursor:pointer;
+}
+#bg_menu {
+	height: 100px;
+	background-color:silver;
+}
+.bgOptions{
+  font-family: 'Chivo', sans-serif;
+  font-style: italic;
+  font-size: 0.6em;
+  cursor: pointer;
+}
+#bg1{ 
+background-color: black;
+background-image: url("../images/bg.dither.gif");
+}
+#bg1text{
+  background: rgb(204,204,204);
+  background-image: none;
+}
+#bg2{
+background-color: black;
+color: whitesmoke;
+}
+#bg3{
+background-color: white;
+color: black;
+}
+#bg4{
+background-color: gray;
+color: black;
+}
+#bg5{}
+#preview {
+	height:150px;
+}
+#transparent,#submitvalue,#addfavlist,#openfavlist {
+  margin-top:0.5em;
+	font-size:12px;
+}
+#submitvalue{
+  text-align: center;
+}
+#namespace {
+	width:inherit;
+}
+#container {
+	margin:0 auto;
+	width:31%;
+	padding-top:100px;
+	padding-right:10px;
+	padding-left:10px;
+	text-align:center;
+	font-size:0;
+  margin-bottom:14px;
+}
+#container div
+{
+	text-align:left;
+	display: -moz-inline-stack;
+	display:inline-block;
+	vertical-align:bottom;
+	min-height: 30px;
+	zoom: 1;
+	word-wrap: break-word;
+	*display: inline;
+	cursor:pointer;
+}
+.colors
+{
+	font-size: 9px;
+	margin:2px 2px 0px 0px;
+}
+#colornames {
+	color:white;
+  z-index:12;
+	position:fixed;	
+	top:50px;
+	left:2%;
+	width:400px;
+	font-size: 49px; 
+	text-shadow: black 1px 2px; 
+	display: block;
+}
+#infoswitch, #hexswitch, #backgroundswitch {
+	background-image:url('../images/gradient.jpg');
+	cursor:pointer;
+	font-size: 19px;
+	text-shadow: none;
+}
+#infoswitch span{
+	display: none;
+}
+#switches {
+  
+	position:fixed;
+	top: 0px; 
+	right:1.2em;
+	width: 334px;
+	font-size:20px;
+	border-style: groove;
+	border-width: 4px;
+	background-color:gray;
+	padding:2px;
+	box-shadow: 10px 10px 5px #141414;
+	z-index: 10;  
+  overflow: visible;
+  
+}
+.switches_depressed{
+  color: #aaa;
+}
+#nameholder, #namespace {
+	font-size: 30px;
+	width:70%;
+}
+.defaulttrans{
+	color:#141414;
+	box-shadow:10px 10px 5px #141414;
+	background-color:#D1D1D1;
+	border-width:2px;
+	border-style:outset;
+	cursor:pointer;
+}
+.hovertrans{
+	background-color:DarkGrey;
+	color:#383838;
+	box-shadow:5px 5px 2px #141414;
+}
+#vasebackground {
+	position: fixed; 
+	z-index: 2; 
+	height: 120px; 
+	width: 69px; 
+	top: 2px; 
+	right: 30px; 
+	background-color: rgb(171, 171, 171);
+}
+#vase {
+	position:fixed; 
+	z-index:3; 
+	height:120px; 
+	width:69px; 
+	top:2px; 
+	right:30px; 
+	background-image:url("../images/vase.png");
+}
+#vaseshim {
+	position:fixed; 
+	z-index:4; 
+	height:120px; 
+	width:69px; 
+	top:2px; 
+	right:30px; 
+	background-image:url("../images/vaseshim.png")
+}
+label {
+	display: inline-block;
+	width: 190px;
+	padding-right: 10px;
+	text-align: right;
+	color: #555;
+}
+#controls {
+	display: inline-block;
+	padding: 10px;
+	width: 430px;
+	height:402px;
+	position: absolute;
+	background-color: #fff;
+	background-image: url("../images/imcupbg.jpg");
+	background-position: center center;		
+}
+.shim {
+	height: 10px;
+	clear: both;
+	display: block;
+}
+#controls *{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+	font-size: 14px;	
+}
+#controls a{
+	color: #a39;
+	font-weight: bold;
+	text-decoration:underline;
+}
+#controls a:hover{
+	cursor:pointer;
+	text-decoration:underline;
+}
+#noticeDlg {
+	display:none;
+}
+#favpanel{
+	width:inherit;
+  background: lightgray;
+  margin-top: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 140px;
+  overflow-y: auto;
+}
+#favpanel .paneltitle{
+	color:black;
+	font-size: 16px;
+	text-align:center;
+	width:inherit;
+	display:block;
+}
+.favcolor label{
+	font-size: 12px;
+	text-align:left;	
+	padding:0;
+	width:150px;
+	margin:0;	
+	color:black;
+}
+.favcolor {
+	margin-right:3px;
+	margin-left:10px;
+	width:inherit;
+	display: block;
+}
+.clear {
+	clear:both;
+}
+.favmsg {
+	font-size: 13px;
+	color:red;
+	width:inherit;
+	text-align:center;
+	display:block;
+}
+.favcolorbox {
+	height:11px; 
+	width:18px;
+	display:inline-block;
+}

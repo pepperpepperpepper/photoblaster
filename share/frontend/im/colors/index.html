@@ -1,0 +1,108 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+	<div id="colorpicker">
+		<div id="container">
+			<div id="d0" class="colors"></div>
+		</div>
+		<div id="colornames">CLICK TO CHOOSE THE COLOR</div>		
+		<div id="switches" title="click to drag">
+			<form action="" method="post">
+				<span class="subtitle">OPTIONS</span>
+				<div id="hexswitch" class="theswitches">CLICK TO SWITCH TO RGB VALUES</div>
+				<input type="hidden" name="opt_hexswitch" id="opt_hexswitch" />
+				<br />
+				<div id="infoswitch" class="theswitches">CLICK TO TOGGLE PALATE INFO<span id="infospace">(NONE)</span></div>
+				<input type="hidden" name="opt_infoswitch" id="opt_infoswitch" />
+				<br />
+				<div id="backgroundswitch" class="theswitches">BACKGROUNDS...</div>
+				<div id="bg_menu" class="hide">
+				  <div class="bgOptions" id="bg1"><span id="bg1text">Dithered</span></div>
+				  <div class="bgOptions" id="bg2">Black</div>
+				  <div class="bgOptions" id="bg3">White</div>
+				  <div class="bgOptions" id="bg4">Gray</div>
+				  <div class="bgOptions" id="bg5">
+					<label for="chooseyourown">Choose your own (add a Url)</label>
+					<input type="text" value="" id="bgURI" name="bgURI">
+					<input type="hidden" name="opt_bgURI" id="opt_bgURI" />
+				  </div>
+				  <div class="bgOptions" id="selectors"></div>
+				</div>
+				<input type="hidden" name="opt_bgColor" id="opt_bgColor" />
+				<br />
+				<div id="preview" style="width: 206px; height: 127px; background-color: rgb(171, 171, 171); border-style: none;"></div>
+				<div class="subtitle">YOU WILL CHOOSE:<br />				
+					<input type="text" id="namespace" name="namespace" class="subtitle" />
+        
+					<div id="submitvalue" class="defaulttrans">PICK</div>
+				<br />
+				<span id="transparent">to choose transparent:
+					<span id="transbutton" class="defaulttrans">TRANSPARENT</span><span id="extra" class="smalltitle"></span>
+				</span>
+        </br> 
+					<span id="addfavlist" class="defaulttrans">Add to Favorites</span>
+					<span id="openfavlist" class="defaulttrans">Open Favorties</span>
+				</div>
+				<span id="noticeDlg"></span>
+				<div id="favpanel" style="display:none;">
+					<input type="hidden" name="favcolors" id="favcolors" />
+					<label class="paneltitle">FAVORITES</label>
+					<span class="favcolor" style="display:none;"><input name="favcolor" type="radio" id="favnone" onclick="selectfavColor('');"><label>&nbsp;</label><span class="favcolorbox">&nbsp;</span></span>
+				</div>
+				<div class="clear"></div>
+			</form>
+		</div>		
+<!--		<div id="vasebackground"></div>-->
+<!--		<div id="vase"></div>-->
+<!--		<div id="vaseshim"></div>	-->
+	</div>				
+	<script type="text/javascript" src="./js/jquery-1.10.1.js"></script>
+	<script type="text/javascript" src="./js/data.js"></script>
+	<script type="text/javascript" src="./js/colorpicker.js"></script>
+	<script type="text/javascript" src="./js/jquery.fancybox.js?v=2.1.5"></script>
+	<script type="text/javascript" src="./js/jquery.remember-state.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+	<script type="text/javascript">		
+		$(document).ready(function(){
+      $('#submitvalue').click(function(){
+        $("form").rememberState("save");
+      });
+      $(function() {
+          $("form").rememberState({
+            objName: "color_info",
+            noticeDialog:$('#noticeDlg').html("<a href=\"#\" id=\"linkrestore\">Restore</a>"),
+            noticeSelector:'.remember_state'
+          }).submit(false);
+          $('#linkrestore').click();			  
+          ColorPicker.loadColorStorage();
+      });
+      var lastoffset = 0;
+      $(window).scroll(function(){
+        if($(this).scrollTop() == 0) {
+            $('#switches').css({'top': '118px' });
+        }
+        if (bscroll)
+        {
+          if($(this).scrollTop() != 0) {					
+            var fcolors = $('#favcolors').val();	
+            var clist=fcolors.split(separate);
+            if (lastoffset < $(this).scrollTop()) {
+              $('#switches').css({'top': (118 - 19 * (clist.length - 3)) + 'px' });
+            }
+          }
+        }			
+        lastoffset = $(this).scrollTop();			
+      });
+      $("#switches").draggable()
+      window.onload = function () { 
+        if ($("#favcolors").val()){
+          ColorPicker.openfavourites()
+        }
+      }
+    })		
+  </script>
+</body>
+</html>

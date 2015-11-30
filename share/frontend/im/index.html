@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html>
+<head>
+<title>PHOTOBLASTER</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta property="og:title" content="PHOTOBLASTER"/> 
+<meta property="og:type" content="website"/> 
+<meta property="og:url" content="http://asdf.us/im/"/> 
+<meta property="og:image" content="http://asdf.us/im/6e/sparklebling1_1310021111_1310071704.gif" />
+<meta property="og:site_name" content="asdf.us"/> 
+<meta property="og:description" content="Paste a link into the first box, then use the other settings to colorize, distort, add transparency and a background."/> 
+<meta property="fb:admins" content="100001923956223,1709246"/>
+<!--FOR THE COLORS IFRAME-->
+<link rel="stylesheet" type="text/css" href="/im/colors/css/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+<body>
+<div id="down_for_maintenance">
+  <span>SORRY, this photoblaster page is down for maintenance. Will be back in an hour or so...</span>
+</div>
+<div id="controls">
+<form id="imform" action="javascript:return false">
+	<label id="img-url-label">IMAGE URL</label>
+	<input type="text" id="img-url" /><div id="bgswitcheroo"></div>
+	<!--<br/>-->
+	<label id="background-url-label">background URL</label>
+	<input type="text" id="img-background" value="" />
+	<br/>
+
+	<label>compose operator</label>
+	<select id="img-compose">
+		<option selected="selected">Over</option>
+		<option>ATop</option>
+		<option>Dst_Over</option>
+		<option>Dst_In</option>
+		<option>Dst_Out</option>
+		<option>Multiply</option>
+		<option>Screen</option>
+		<option>Divide</option>
+		<option>Plus</option>
+		<option>Difference</option>
+		<option>Exclusion</option>
+		<option>Lighten</option>
+		<option>Darken</option>
+		<option>Overlay</option>
+		<option>Hard_Light</option>
+		<option>Soft_Light</option>
+		<option>Pegtop_Light</option>
+		<option>Linear_Light</option>
+		<option>Vivid_Light</option>
+		<option>Pin_Light</option>
+		<option>Linear_Dodge</option>
+		<option>Linear_Burn</option>
+		<option>Color_Dodge</option>
+		<option>Color_Burn</option>
+	</select>
+	<br/>
+
+	<label>gravity</label>
+	<select id="img-gravity">
+		<option selected="selected">Center</option>
+		<option>East</option>
+		<option>NorthEast</option>
+		<option>North</option>
+		<option>NorthWest</option>
+		<option>West</option>
+		<option>SouthWest</option>
+		<option>South</option>
+		<option>SouthEast</option>
+	</select>
+<!--  <br>
+	<label>tile foreground?</label>
+		
+	<input type="checkbox" id="img-tile" value="1" />
+	<br/> -->
+
+<!--
+	<label>merge before recolor?</label>
+	<input type="checkbox" id="img-merge_early" value="1" />
+	<br/>
+
+-->
+	<span class="shim"></span>
+
+
+	<span class="shim"></span>
+
+	<label>make semi-transparent?</label>
+	<input type="checkbox" id="img-transparent" value="1" checked="true" />
+	<br/>
+
+	<label>remove color</label>
+	<input type="text" id="img-subtract" value="white" class="img-subtract"/>&nbsp;
+<a href="colors/" class="img-subtract pick-color">pick color</a>
+	<br/>
+
+	<label>transparency fuzz</label>
+	<input type="text" id="img-fuzz" value="5" />%
+	<br/>
+
+	<span class="shim"></span>
+
+	<label>resize width</label>
+	<input type="text" id="img-width" /><small>px</small>
+	<br/>
+
+	<label>resize height</label>
+	<input type="text" id="img-height" /><small>px</small>
+	<br/>
+
+	<label>nearest neighbor?</label>
+	<input type="checkbox" id="img-nearest" value="1" />
+	<br/>
+
+	<span class="shim"></span>
+
+	<label>recolor white</label>
+	<input type="text" id="img-white" class="img-white" value="white" />&nbsp;
+<a href="colors/" class="img-white pick-color">pick color</a>
+	<div id="colorswitcheroo"></div>
+	<br/>
+
+	<label>recolor black</label>
+	<input type="text" id="img-black" class="img-black" value="black" />&nbsp;
+<a href="colors/" class="img-black pick-color">pick color</a>
+	<br />
+<!--	<label><a href="colors/index.html" target="_blank" style="font-size: 10px">-->
+<!--	List of Color Names</a></label>-->
+
+	<span class="shim"></span>
+
+	<label>hue <small>(0-200)</small></label>
+	<input type="text" id="img-hue" value="" />
+	<br/>
+<!--
+	<label>saturation <small>(0-200)</small></label>
+	<input type="text" id="img-saturation" value="" />
+	<br/>
+-->
+<!--
+	<label>brightness <small>(0-200)</small></label>
+	<input type="text" id="img-brightness" value="" />
+	<br/>
+-->
+<!--
+	<label>contrast <small>(0-200)</small></label>
+	<input type="text" id="img-contrast" value="" />
+	<br/>
+-->
+
+	<span class="shim"></span>
+
+	<label>flip horizontally?</label>
+	<input type="checkbox" id="img-flop" value="1" />
+	<br/>
+
+	<label>flip vertically?</label>
+	<input type="checkbox" id="img-flip" value="1" />
+	<br/>
+
+	<label>rotate <small>(0-360)</small></label>
+	<input type="text" id="img-rotate" value="" />&deg;
+	<br/>
+
+	<span class="shim"></span>
+
+	<label>output format</label>
+	<select id="img-format">
+		<option selected="selected">gif</option>
+		<option>jpg</option>
+		<option>png</option>
+	</select>
+<!--
+	<span id="gif-options">
+		<label>dispose</label>
+		<select id="dispose">
+			<option value="none" selected>None</option>
+			<option value="previous">Previous</option>
+			<option value="background">Background</option>
+		</select>
+	</span>
+-->
+
+ <!-- <input type="reset" id="reset-button" value="reset-button"></input>-->
+
+	<span class="shim"></span>
+
+	<label>put your name here &gt;&gt;&gt;</label>
+	<input type="text" id="img-name" value="" />
+	<br/>
+
+	<span class="shim"></span>
+
+	<label>&nbsp;</label>
+	<button id="img-generate">GENERATE</button>
+
+ </form>
+
+	<span class="shim"></span>
+	<p>
+  <img src="img/new.gif" width="32" height="16" />
+  Draw color codes &rarr; <a href="/ascii/">Ascii</a> 
+	<span class="shim"></span>
+  Mess around with heightmaps and textures &rarr; <a href="/imlandscape">ImLandscape</a> 
+	<span class="shim"></span>
+  Overlay patterns onto your gifs &rarr; <a href="/impattern">ImPattern</a> 
+	<span class="shim"></span>
+  Write your own effects &rarr; <a href="/shader/">Shaderblaster</a> &amp; <a href="/dither/">Dither</a>
+	<span class="shim"></span>
+  Oh now it's on....payback time &rarr; <a href="/imbreak/">FOTO FUCKER</a>
+	<span class="shim"></span>
+  Transform images in 3D &rarr; <a href="/imgrid/">Grid Generator</a>
+	<span class="shim"></span>
+  Gradients make everything better &rarr; <a href="/imgradient/">Gradient Generator</a>
+	</p>
+	<span class="shim"></span>
+	<p>
+	See what people are making &rarr; <a href="/im/gallery/">Image Gallery</a><br/>
+	<span class="shim"></span>
+	The best ones go here &rarr; <a href="http://photoblaster.tumblr.com/">Photoblaster Tumblr</a>
+	<span class="shim"></span>
+	View a random selection &rarr; <a href="/im/gallery/?random=1">Random Gallery</a><br/>
+  <span id="userlink">
+  	<span class="shim"></span>
+  	Things you've made &rarr; <a href="/im/gallery/?random=1">Your Gallery</a><br/>
+  </span>
+	</p>
+</div>
+
+<div id="result">
+	&rarr; <input type="text" id="output-url"/><br/>
+	<span id="output-cmd"></span><br/>
+
+	<img id="output-img" />
+	<br/><span id="sendtoinput"></span>
+</div>
+
+<!--
+<div id="likebutton"> 
+<div id="fb-root" style="background-color: transparent;"></div><script src="http://connect.facebook.net/en_US/all.js#appId=236917449658413&amp;xfbml=1"></script><fb:like href="http://asdf.us/im/" send="false" width="347" show_faces="true" colorscheme="light" font="" style="background-color: transparent;"></fb:like>
+</div> 
+-->
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="http://asdf.us/js/pbembed.js"></script>
+<!--for the colors iframe-->
+<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="/im/colors/js/jquery.remember-state.js"></script>
+<script type="text/javascript" src="/im/colors/js/jquery.fancybox.js?v=2.1.5"></script>
+<script type="text/javascript" src="colors_iframe.js"></script>
+</body>
+</html>
+

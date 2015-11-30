@@ -1,0 +1,113 @@
+body{
+  font-family:georgia, Arial;
+  font-size:10pt;
+}
+h1{
+  font-size:18px;
+  width:50%;
+  margin:10px;
+  padding:10px;
+}
+#flatcontrols{
+  width:40%;
+  margin:10px;
+  padding:10px;
+}
+.lineadj{
+  display:none;
+}
+.threedadj{
+  display:none;
+}
+.gridbgadj{
+  display:none;
+}
+.imageoptions{
+  display:none;
+}
+.results{
+  display:none;
+  position:relative;
+  z-index:-100;
+}
+#output-url{
+  z-index:100;
+  width:500px;
+}
+.slider{
+  background-color:#eee5de;
+  display:inline-block;
+  width:50%;
+}
+#opacity-slider{
+  width:100%;
+  display:inline-block;
+  margin-right:0;
+  margin-left:0;
+}
+input{
+  width:70px;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default
+{
+background-color:#555;
+}
+#result
+{
+position:fixed;
+right:20%;
+top:20px;
+}
+#output-url
+{
+width:100%;
+}
+.urlinput
+{
+width:60%;
+}
+a
+{
+background-color:white;
+max-width:100px;
+}
+a:link{
+  color: black;
+}
+a:visited{
+  color: black;
+}
+a:hover{
+  color: black;
+}	
+a:active{
+  color: black;
+}
+table td{
+  padding:4px;
+}
+#threedmore, #imageoptionsmore{
+  background-color:white;
+  cursor:pointer;
+  font-size:20px;
+  text-align:center;
+}
+button {
+  background: white;
+  color: #000000;
+  font-size: 18px;
+  font-family: Georgia, serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+.button:hover {
+  border-top-color: #78e072;
+  background: #78e072;
+  color: #000000;
+}
+.options{
+  background-color:white;
+}
+.options-table{
+  width:100%;
+}

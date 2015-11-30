@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+-->         
+<head>
+<title>GRADIENT PHOTOBLASTER</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta property="og:title" content="GRADIENT PHOTOBLASTER"/> 
+<meta property="og:type" content="website"/> 
+<meta name=Author content="Pepper .... with help from Jules LaPlace"/>
+<meta property="og:url" content="http://asdf.us/imgradient/"/> 
+<meta property="og:image" content="http://asdf.us/g/experiment/whitegreencrazy.jpg" />
+<meta property="og:site_name" content="asdf.us"/> 
+<meta property="og:description" content="choose colors and options, let it flow out of you."/> 
+<meta property="fb:admins" content="100001923956223,1709246"/>
+<link href="css/custom-theme/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/im/colors/css/jquery.fancybox.css?v=2.1.5" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+<body>
+<div id="error"></div>
+<div id="controls">
+<form id="reset" onsubmit="return false">
+<h1>
+	GRADIENT GENERATOR FOR PHOTOBLASTER
+	<img src="http://i.asdf.us/im/4e/angreekcolumnshowcaselg_1315115918_pepper.gif"/>
+	<img src="http://i.asdf.us/im/4e/angreekcolumnshowcaselg_1315115933_pepper.gif"/> 
+	<img src="http://i.asdf.us/im/4e/angreekcolumnshowcaselg_1315115941_pepper.gif"/>
+	<img src="http://i.asdf.us/im/4e/angreekcolumnshowcaselg_1315115946_pepper.gif"/>
+	<img src="http://i.asdf.us/im/4e/angreekcolumnshowcaselg_1315115946_pepper.gif"/>
+	<img src="http://i.asdf.us/im/4e/angreekcolumnshowcaselg_1315115946_pepper.gif"/>
+	<img src="http://i.asdf.us/im/4e/angreekcolumnshowcaselg_1315115946_pepper.gif"/> 
+	<img src="http://i.asdf.us/im/4e/angreekcolumnshowcaselg_1315115946_pepper.gif"/>
+</h1>
+
+	<span class="shim"></span>
+  
+
+	<label><span style="font-weight:bold; color:black;">CHOOSE A GRADIENT TYPE<span class="arrow">&rarr;</span></span></label>
+	<select id="gradient-type">
+		<option selected="selected" value="gradient">STRAIGHT FADE</option>
+		<option value="plasma">PLASMA</option>
+	<!--	<option value="-function sinusoid 4,-90 gradient:">bands</option>-->
+		<option value="canvas">JUST A FLAT COLOR</option>
+		<option value="radial">RADIAL GRADIENT</option>
+		<option value="colorspace">GRAYSCALE PLASMA</option>
+		<option value="plasmawash">PLASMA WASH</option>
+		<option value="gradientwash">GRADIENT WASH</option>
+		<option value="mirrored">MIRRORED PLASMA</option>
+		<option value="noise">RANDOM NOISE</option>
+	</select>
+
+	<span class="shim"></span>
+
+	<label><span style="font-weight:bold">ADJUST THE WIDTH</span><span class="arrow">&rarr;</span></label>
+	<input type="text" id="img-width" value="400" /><small>px</small>
+	<br/>
+	
+	<span class="shim"></span>
+
+	<label><span style="font-weight:bold">ADJUST THE HEIGHT</span><span class="arrow">&rarr;</span></label>
+	<input type="text" id="img-height" value="400" /><small>px</small>
+	<br/>
+
+	<span class="shim"></span>
+
+	<label>CHOOSE SOME COLORS<span class="arrow">&rarr;</span></label>
+	<span class="shim"></span>
+
+	<label><span style="font-weight:bold; color:black;">COLOR 1</span><span class="arrow">&rarr;</span></label>
+	<input type="text" id="img-color1" value="white" class="color1" />&nbsp;<a href="http://asdf.us/im/colors" target="_blank" class="color1">color list</a>
+	<br/>
+
+	<span class="shim"></span>
+
+	<label><span style="font-weight:bold; color:black;">COLOR 2</span><span class="arrow">&rarr;</span></label>
+	<input type="text" id="img-color2" value="black" class="color2"/>&nbsp;<a href="http://asdf.us/im/colors" target="_blank" class="color2">color list</a>
+	<br/>
+
+	<span class="shim"></span>
+
+	<span style="font-size:11px">
+	<label>BANDS(also called stripes)?<span class="arrow">&rarr;</span></label>
+	<input type="checkbox" id="stripes" value="1" />
+	<small>if yes...</small><label>NUMBER:</label><input value="" type="text" id="stripenumber"></input><small>0-400</small><label>INTENSITY:</label><input value="" type="text" id="stripeintensity"></input><small>0-2000</small>
+	</span>	
+	
+	<span class="shim"></span>
+	<span class="shim"></span>
+
+	<label>BLURRINESS <small>(0-20)</small><span class="arrow">&rarr;</span></label>
+	<input type="text" id="img-blur" value="" />
+	<br/>
+
+	<div class="slider" id="blur-slider"></div>
+
+	<label>HUE <small>(0-200)</small><span class="arrow">&rarr;</span></label>
+	<input type="text" id="img-hue" value="" />
+	<br/>
+
+	<div class="slider" id="hue-slider"></div>
+
+	<label>SATURATION <small>(0-200)</small><span class="arrow">&rarr;</span></label>
+	<input type="text" id="img-saturation" value="" />
+	<br/>
+
+	<div class="slider" id="saturation-slider"></div>
+
+	<label>BRIGHTNESS <small>(0-200)</small><span class="arrow">&rarr;</span></label>
+	<input type="text" id="img-brightness" value="" />
+	<br/>
+
+	<div class="slider" id="brightness-slider"></div>
+
+	<span class="shim"></span>
+
+
+	<label><span style="font-size:11px">CHOOSE A HALFTONE FILTER</span><span class="arrow">&rarr;</span></label>
+	<select id="halftone-type">
+		<option selected="selected" value="">None</option>
+		<option value="checkeredfade">checkered-fade</option>
+		<option value="etchedtransition">etched-transition</option>
+		<option value="bendaydots">benday dots</option>
+		<option value="smallerdots1">smaller dots 1</option>
+		<option value="smallerdots2">smaller dots 2</option>
+		<option value="flatstripes">flat stripes</option>
+	</select>
+	
+	
+	<span class="shim"></span>
+
+	<label><span style="font-size:11px">ADD A BEVELED BORDER</span><span class="arrow">&rarr;</span></label>
+	
+	<select id="bevel-type">
+		<option selected="selected" value="">None</option>
+		<option value="flatout">flat out</option>
+		<option value="flatinner">flat inner</option>
+		<option value="evenlyframed">evely framed</option>
+		<option value="biginner">big inner</option>
+		<option value="bigouter">big outer</option>
+		<option value="dramaticflatout">dramatic flat out</option>
+		<option value="dramaticflatinner">dramatic flat inner</option>
+	</select>	
+	
+	<span style="font-size:11px"><label>PERCENT BEVELED?</label></span> <input val="" type="text" id="percentbeveled"><small>%</small>
+
+
+	<span class="shim"></span>
+	<span class="shim"></span>
+	<label>FLIP HORIZONTALLY?
+	<span class="arrow">&rarr;</span></label>
+	<input type="checkbox" id="img-flop" value="1" />
+	<br/>
+
+	<label>FLIP VERTICALLY?<span class="arrow">&rarr;</span></label>
+	<input type="checkbox" id="img-flip" value="1" />
+	<br/>
+	<label>TILT<small>(0-360)</small><span class="arrow">&rarr;</span></label>
+	<input type="text" id="img-tilt" value="" />&deg;
+	<br/>
+	<span class="shim"></span>
+
+	<label>ROTATE THE CANVAS<small>(0-360)</small><span class="arrow">&rarr;</span></label>
+	<input type="text" id="img-rotate" value="" />&deg;
+	<br/>
+
+	<span class="shim"></span>
+
+	<span class="shim"></span>
+
+	<label>output format:</label>
+	<select id="img-format">
+		<option selected="selected">png</option>
+		<option>jpg</option>
+		<option>gif</option>
+	</select>
+
+	<span class="shim"></span>
+
+	<label>PUT YOUR NAME HERE &gt;&gt;&gt;</label>
+	<input type="text" id="img-name" value="" />
+	<br/>
+
+	<span class="shim"></span>
+
+	<label>&nbsp;</label>
+	<button id="img-generate">GENERATE</button>
+
+	<span class="shim"></span>
+	<br>
+	VIEW AND ARRANGE THE PHOTOBLASTS &rarr; <a href="/im/gallery/" target="_blank">Image Gallery</a><br/>
+	<span class="shim"></span>
+	OPEN THE PHOTOBLASTER EDITOR &rarr; <a href="/im" target="_blank">PHOTOBLASTER</a>
+	<span class="shim"></span>
+	TOP PHOTOBLASTS GO TO THE TUMBLR &rarr; <a href="http://photoblaster.tumblr.com/">Photoblaster Tumblr</a>
+	</p>
+
+</div>
+
+<div id="result">
+	&rarr; <input type="text" id="output-url"/><br/>
+	<span id="output-cmd"></span><br/>
+
+	<img id="output-img" />
+</div>
+</form>
+</div>
+
+<div id="likebutton"> 
+<div id="fb-root" style="background-color: transparent;"></div><script src="http://connect.facebook.net/en_US/all.js#appId=236917449658413&amp;xfbml=1"></script><fb:like href="http://asdf.us/im/" send="false" width="347" show_faces="true" colorscheme="light" font="" style="background-color: transparent;"></fb:like> 
+</div> 
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="/im/colors/js/jquery.remember-state.js"></script>
+<script type="text/javascript" src="/im/colors/js/jquery.fancybox.js?v=2.1.5"></script>
+<script type="text/javascript" src="js/colors_iframe.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<!--<script type="text/javascript" src="http://asdf.us/js/pbembed.js"></script>-->
+</body>
+</html>
+

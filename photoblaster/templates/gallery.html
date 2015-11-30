@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<script type="text/javascript" src="/gallery-static/js/jquery.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="pragma" content="no-cache" />
+<link href="/gallery-static/main.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+var imagedata = [ 
+{% for image in images %}
+[ "{{ image }}" ],
+{% endfor %}
+]
+
+</script>
+<script type="text/javascript" src="/gallery-static/js/querystring.js"></script>
+<script type="text/javascript" src="/gallery-static/js/title.js"> </script>
+<script type="text/javascript" src="/gallery-static/js/main.js"> </script>
+<script type="text/javascript" src="/gallery-static/js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="/gallery-static/js/gallery_isotope_config.js?v=3"></script>
+<script type="text/javascript" src="/gallery-static/js/ZeroClipboard.js"></script>
+<script type="text/javascript" src="http://asdf.us/js/pbembed.js"></script>
+
+<link href="/gallery-static/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div id='nextpage'>
+  <a href='/im/'>editor</a> | 
+  {% if newer < 0 %}
+  <a id="newer">&larr; newer</a> | 
+  {% else %}
+  <a id="newer" href="?start={{ newer }}{% if qs|length %}&{% endif %}{{ qs }}">&larr; newer</a> | 
+  {% endif %}
+
+  <a href='?random=1{% if qs|length %}&{% endif %}{{ qs }}'>random</a> | 
+  <a id="older" href="?start={{ older }}{% if qs|length %}&{% endif %}{{ qs }}">older &rarr;</a>
+</div>
+<div id="help">
+  <b>key controls</b>
+  <div id="keys">
+        <br/>
+        <div class="small"><i>when composer is launched...</i></div>
+        <div>ESC toggle</div>
+        <div>C clear</div>
+        <div>R reverse</div>
+        <br/>
+        <div class="small"><i>in the gallery...</i></div>
+        <div>BACKSPACE delete</div>
+        <div>LEFT ARROW newer</div>
+        <div>RIGHT ARROW older</div>
+  </div>
+</div>
+<div id="actions">
+  <b>sort</b>
+  <div id="sorting-optionsContainer">
+    <div class="sorting-options" id="date">date</div>
+    <div class="sorting-options" id="username">username</div>
+    <div class="sorting-options" id="height">height</div>
+    <div class="sorting-options" id="width">width</div>
+    <div class="sorting-options" id="gif">gif</div>
+    <div class="sorting-options" id="shuffle">shuffle</div>
+    <div class="sorting-options" id="lambada">lombada</div>
+  </div>
+</div>
+<div id="tags">
+  <b>tags</b>
+  <div id="tag-optionsContainer">
+    <div class="tag-clear"><i>remove tag</i></div>
+    <div class="tag-options" id="transparent">transparent</div>
+    <div class="tag-options" id="break">break</div>
+    <div class="tag-options" id="gradient">gradient</div>
+    <div class="tag-options" id="grid">grid</div>
+    <div class="tag-options" id="pattern">pattern</div>
+    <div class="tag-options" id="landscape">landscape</div>
+    <div class="tag-options" id="shader">shader</div>
+    <div class="tag-options" id="ascii">ascii</div>
+    <div class="tag-options" id="Over">Over</div>
+    <div class="tag-options" id="ATop">ATop</div>
+    <div class="tag-options" id="Dst_Over">Dst_Over</div>
+    <div class="tag-options" id="Dst_In">Dst_In</div>
+    <div class="tag-options" id="Dst_Out">Dst_Out</div>
+    <div class="tag-options" id="Multiply">Multiply</div>
+    <div class="tag-options" id="Screen">Screen</div>
+    <div class="tag-options" id="Divide">Divide</div>
+    <div class="tag-options" id="Plus">Plus</div>
+    <div class="tag-options" id="Difference">Difference</div>
+    <div class="tag-options" id="Exclusion">Exclusion</div>
+    <div class="tag-options" id="Lighten">Lighten</div>
+    <div class="tag-options" id="Darken">Darken</div>
+    <div class="tag-options" id="Overlay">Overlay</div>
+    <div class="tag-options" id="Hard_Light">Hard_Light</div>
+    <div class="tag-options" id="Soft_Light">Soft_Light</div>
+    <div class="tag-options" id="Pegtop_Light">Pegtop_Light</div>
+    <div class="tag-options" id="Linear_Light">Linear_Light</div>
+    <div class="tag-options" id="Vivid_Light">Vivid_Light</div>
+    <div class="tag-options" id="Pin_Light">Pin_Light</div>
+    <div class="tag-options" id="Linear_Dodge">Linear_Dodge</div>
+    <div class="tag-options" id="Linear_Burn">Linear_Burn</div>
+    <div class="tag-options" id="Color_Dodge">Color_Dodge</div>
+    <div class="tag-options" id="Color_Burn">Color_Burn</div>
+  </div>
+</div>
+<div id="dump">
+  <div id="rebus"></div>
+  <input id="urlz" type="text" />
+  <div id="d_clip_container" style="position:relative">
+    <div id="d_clip_button">copy</div>
+  </div>
+  <button id="clear">clear</button>
+</div>
+<div id="images">
+</div>
+
+<script>
+
+</script>
+</html>
