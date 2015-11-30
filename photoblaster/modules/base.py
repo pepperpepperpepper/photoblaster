@@ -9,7 +9,7 @@ import time
 import sys
 import os
 import random
-from subprocess import Popen, PIPE, call
+from subprocess import Popen, PIPE, call, CalledProcessError
 from photoblaster.params import Params
 import sha
 import simplejson as json
@@ -102,9 +102,9 @@ class Pb(object):
                 [BIN_IDENTIFY, filepath],
                 stdout=PIPE).communicate()[0]).split(" ")
             return ident[2].split("x")
-        except Exception as e:
+        except CalledProcessError as e:
             self.err_warn("Unable to get file dimensions:\n")
-            self.err_ward(str(e))
+            self.err_warn("%s\n" % e)
 
     def _file_dimensions(self):
         self.file_width, self.file_height = self._dimensions(self.filepath)
@@ -124,7 +124,7 @@ class Pb(object):
     def _file_size_get(self):
         try:
             self.file_size = os.stat(self.filepath)[6]
-        except Exception as e:
+        except CalledProcessError as e:
             self.err_warn("Couldn't determine filesize of %s\n" % self.filepath)
             self.err_warn(str(e))
 
@@ -175,7 +175,7 @@ class Pb(object):
                 (info).split('\n')
             ))
             return frames
-        except Exception as e:
+        except CalledProcessError as e:
             Pb.err_warn("couldn't get gif frames")
             raise e
 
@@ -200,7 +200,7 @@ class Pb(object):
             }
             ImCmd.create(**_insert_data)
         except Exception as e:
-            self.err_warn("Problem sending to database:\n %s" % str(e))
+            self.err_warn("Problem sending to database:\n %s\n" % str(e))
 
     def file_s3move(self):
         self._hashdir_create()
