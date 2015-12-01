@@ -13,6 +13,7 @@ class Actions(object):
         session = SessionHeap()
         session.add(cls(**kwargs))
         session.commit()
+        session.close()
         SessionHeap.remove()
 
     def update(self, **kwargs):
